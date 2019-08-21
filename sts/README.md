@@ -6,7 +6,7 @@ Automates the generation and configuration of temporary AWS STS credential keys 
 
 ### USAGE
 
-1. Create a copy of the .env-template file
+1. Create a copy of the .env.example file
 1. Rename your copy to .env
 1. Populate variables in .env file
 

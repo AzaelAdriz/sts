@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-credentialsFilePath = os.getenv("credentialsFilePath")
+credentials_file_path = os.getenv("credentials_file_path")
 arn = os.getenv("arn")
 initial_aws_access_key_id = os.getenv("initial_aws_access_key_id")
 initial_aws_secret_access_key = os.getenv("initial_aws_secret_access_key")
@@ -26,7 +26,7 @@ with open(tempJsonFile) as json_file:
 print(data)
 
 # Create or replace credentials file
-with open(credentialsFilePath, 'w') as credentialsFile:
+with open(credentials_file_path, 'w') as credentialsFile:
     content = [
         "[default]",
         "aws_access_key_id = " + data['Credentials']['AccessKeyId'],

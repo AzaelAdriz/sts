@@ -1,2 +1,2 @@
-sts/out.txt
-sts/.env
+**/out.txt
+**/.env
