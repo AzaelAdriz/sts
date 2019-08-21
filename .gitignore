@@ -1,2 +1,2 @@
-sts.py
-out.txt
+sts/out.txt
+sts/.env
