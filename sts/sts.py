@@ -39,9 +39,14 @@ with open(credentials_file_path, 'w') as credentialsFile:
     credentialsFile.writelines("%s\n" % line for line in content)
     credentialsFile.close()
 
+print("Credentials file updated!")
+print("Cleaning up...")
+
 # Clean up
 if os.path.exists(tempJsonFile):
     json_file.close()
     os.remove(tempJsonFile)
 else:
     print("The file does not exist")
+
+print("Complete!")
