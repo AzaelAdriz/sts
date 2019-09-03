@@ -22,3 +22,21 @@ Automates the generation and configuration of temporary AWS STS credential keys 
    ```
    python sts.py <6 digit MFA Code>
    ```
+
+### Global Unix Execution
+
+1. Add the following to your ~/.bashrc file
+
+   ```
+     # ALIASES #
+     alias stsDir="cd /c/workspaces/bic-automation/sts"
+     sts() {
+         python /c/workspaces/bic-automation/sts/sts.py "$1"
+     }
+   ```
+
+1. Restart terminal
+1. Use sts command from any working directory. No need to cd to sts project directory.
+   ```
+   sts <AWS MFA Code>
+   ```
