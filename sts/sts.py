@@ -10,7 +10,7 @@ initial_aws_access_key_id = os.getenv("initial_aws_access_key_id")
 initial_aws_secret_access_key = os.getenv("initial_aws_secret_access_key")
 
 # START
-os.system("echo *** Running STS Credential Script ***")
+os.system("echo *** Running STS Configuration Script ***")
 
 tokenCode = str(sys.argv[1])
 os.system("echo Token Code: " + tokenCode)
