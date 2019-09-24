@@ -6,8 +6,8 @@ load_dotenv()
 
 credentials_file_path = os.getenv("credentials_file_path")
 arn = os.getenv("arn")
-initial_aws_access_key_id = os.getenv("initial_aws_access_key_id")
-initial_aws_secret_access_key = os.getenv("initial_aws_secret_access_key")
+master_aws_access_key_id = os.getenv("master_aws_access_key_id")
+master_aws_secret_access_key = os.getenv("master_aws_secret_access_key")
 
 # START
 os.system("echo *** Running STS Configuration Script ***")
@@ -18,7 +18,7 @@ os.system("echo Token Code: " + tokenCode)
 try:
     # Execute AWS CLI command to retrieve STS token
     command = os.system('aws sts get-session-token --serial-number ' +
-                        arn + ' --profile initial --token-code ' + tokenCode + ' 1>out.txt')
+                        arn + ' --profile master --token-code ' + tokenCode + ' 1>out.txt')
 
     # Store generated keys
     tempJsonFile = 'out.txt'
@@ -34,9 +34,9 @@ try:
             "aws_secret_access_key = " +
             data['Credentials']['SecretAccessKey'],
             "aws_session_token = " + data['Credentials']['SessionToken'],
-            "[initial]",
-            "aws_access_key_id = " + initial_aws_access_key_id,
-            "aws_secret_access_key = " + initial_aws_secret_access_key
+            "[master]",
+            "aws_access_key_id = " + master_aws_access_key_id,
+            "aws_secret_access_key = " + master_aws_secret_access_key
         ]
         credentialsFile.writelines("%s\n" % line for line in content)
         credentialsFile.close()
